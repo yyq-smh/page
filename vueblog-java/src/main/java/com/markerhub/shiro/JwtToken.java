@@ -19,14 +19,4 @@ public class JwtToken implements AuthenticationToken {
     public Object getCredentials() {
         return token;
     }
-
-    /**
-     * 禁用session, 不保存用户登录状态。保证每次请求都重新认证
-     */
-    @Bean
-    protected SessionStorageEvaluator sessionStorageEvaluator() {
-        DefaultSessionStorageEvaluator sessionStorageEvaluator = new DefaultSessionStorageEvaluator();
-        sessionStorageEvaluator.setSessionStorageEnabled(false);
-        return sessionStorageEvaluator;
-    }
 }
